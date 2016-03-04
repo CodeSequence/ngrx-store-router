@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"declaration": true
+	},
+	"files": [
+    "src/index.ts",
+		"src/middleware.ts",
+		"src/reducer.ts",
+		"src/subscriber.ts",
+		"typings/main.d.ts"
+	],
+	"exclude": [
+		"node_modules"
+	],
+	"compileOnSave": false
+}

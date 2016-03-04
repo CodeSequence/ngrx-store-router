@@ -1,0 +1,32 @@
+{
+  "name": "ngrx-store-router",
+  "version": "0.0.2",
+  "description": "Sync between the current router URL and @ngrx/store",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "build": "tsc",
+    "postbuild": "cp ./{readme.md,package.json} ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonroberts/ngrx-store-router.git"
+  },
+  "keywords": [
+    "angular2",
+    "ngrx",
+    "store",
+    "router"
+  ],
+  "author": "Brandon Roberts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonroberts/ngrx-store-router/issues"
+  },
+  "homepage": "https://github.com/brandonroberts/ngrx-store-router#readme",
+  "peerDependencies": {
+    "@ngrx/store": "^1.3.2",
+    "angular2": "^2.0.0-beta.8",
+    "rxjs": "^5.0.0-beta.2"
+  }
+}
