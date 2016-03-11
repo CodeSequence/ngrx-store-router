@@ -1,10 +1,11 @@
 import {Provider} from 'angular2/core';
+import {usePostMiddleware} from '@ngrx/store';
 import routerSubscriber from './subscriber';
 import routerPostMiddleware from './middleware';
 
-const routerMiddleware: Provider[] = [
-  routerSubscriber,
-  routerPostMiddleware
+const routerMiddleware = [
+  usePostMiddleware(routerPostMiddleware),
+  routerSubscriber
 ];
 
 export {RouterSubscriber} from './subscriber';

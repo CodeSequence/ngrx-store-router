@@ -1,19 +1,12 @@
 import {provide, Provider, Injector} from 'angular2/core';
-import {Middleware, POST_MIDDLEWARE} from '@ngrx/store';
+import {createMiddleware} from '@ngrx/store';
 import {RouterSubscriber} from './subscriber';
-import {Router} from 'angular2/router';
-import {currentUrl} from './util';
+import {Router, Location} from 'angular2/router';
 
-export default provide(POST_MIDDLEWARE, {
-  multi: true,
-  deps: [Router, RouterSubscriber],
-  useFactory(router: Router, rs: any) {
-    return (state): Middleware => {
-      return state.do(s => {
-        if (s.router.url !== currentUrl()) {
-          router.navigateByUrl(s.router.url);
-        }
-      })
-    };
-  }
-});
+export default createMiddleware((router: Router, location: Location, rs: any) => {
+  return state$ => state$.do(s => {
+      if (s.router.url !== location.path()) {
+        router.navigateByUrl(s.router.url);
+      }
+    })
+}, [Router, Location, RouterSubscriber]);

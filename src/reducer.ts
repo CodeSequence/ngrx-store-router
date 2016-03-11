@@ -1,8 +1,7 @@
 import {Reducer, Action, Store} from '@ngrx/store';
-import {currentUrl} from './util';
 
 const initialState = {
-  url: currentUrl(),
+  url: `${window.location.pathname.substring(1)}${window.location.search}`,
   navigating: false
 };
 
