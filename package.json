@@ -1,6 +1,6 @@
 {
   "name": "ngrx-store-router",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Sync between the current router URL and @ngrx/store",
   "main": "index.js",
   "scripts": {
