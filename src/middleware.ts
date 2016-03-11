@@ -1,3 +1,4 @@
+import 'rxjs/add/operator/do';
 import {provide, Provider, Injector} from 'angular2/core';
 import {createMiddleware} from '@ngrx/store';
 import {RouterSubscriber} from './subscriber';

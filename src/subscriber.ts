@@ -1,7 +1,10 @@
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 import {provide, Provider, Injector, OpaqueToken} from 'angular2/core';
 import {Router, Location} from 'angular2/router';
 import {Store, createMiddleware, Dispatcher} from '@ngrx/store';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 import {RouterActions} from './reducer';
 
 export const RouterSubscriber = new OpaqueToken('RouterSubscribe');
