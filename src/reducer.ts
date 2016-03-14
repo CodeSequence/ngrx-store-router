@@ -1,24 +1,29 @@
 import {Reducer, Action, Store} from '@ngrx/store';
 
 const initialState = {
-  url: `${window.location.pathname.substring(1)}${window.location.search}`,
+  init: false,
+  url: "",
   navigating: false
 };
 
 export interface RouterState {
-  url?: string;
+  init?: boolean;
+  url: string;
   navigating?: boolean;
 }
 
 export const RouterActions = {
-  navigated: 'NAVIGATED',
-  navigating: 'NAVIGATING'
+  init: '[ROUTER] INITIALIZED',
+  navigated: '[ROUTER] NAVIGATED',
+  navigating: '[ROUTER] NAVIGATING'
 }
 
 export const routerReducer:Reducer<Object> = (state: RouterState = initialState, action: Action) => {
   switch(action.type) {
+    case RouterActions.init:
+      return Object.assign({}, state, { url: action.payload.url, init: true });
     case RouterActions.navigating:
-      return Object.assign({}, state, { navigating: true });
+      return Object.assign({}, state, { url: action.payload.url, navigating: true });
     case RouterActions.navigated:
       return Object.assign({}, state, { url: action.payload.url, navigating: false });
     default:

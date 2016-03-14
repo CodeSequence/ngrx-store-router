@@ -17,6 +17,19 @@ export default provide(RouterSubscriber, {
     (<Observable<string>>router['_subject'])
       .distinctUntilChanged()
       .map(() => location.path())
+      .filter((url) => {
+        let store = getStore();
+        let init = store.getState().router.init;
+
+        if (!init) {
+          store.dispatch({
+            type: RouterActions.init,
+            payload: {url}
+          });
+        }
+
+        return init;
+      })
       .filter(url => url !== getStore().getState().router.url)
       .map((url) => {
         return {
