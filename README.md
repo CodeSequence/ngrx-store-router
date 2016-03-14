@@ -2,7 +2,11 @@
 
 Sync between the current Angular 2 Router URL and @ngrx/store
 
-This middleware is used along with `@ngrx/store` and `@ngrx/devtools` to navigate between routes while changing state
+This middleware is to be used along with `@ngrx/store` and `@ngrx/devtools` to navigate between routes while changing state
+
+### Demo
+
+http://plnkr.co/edit/Gvg9fW?p=preview
 
 ### Installation
 
@@ -10,7 +14,7 @@ This middleware is used along with `@ngrx/store` and `@ngrx/devtools` to navigat
 
 ### Usage
 
-- In your app's main module, import the router reducer, add the reducer to the `provideStore()` function, and add the `routerMiddleware` to provide them to Angular's injector:
+- In your app's main module, import the router reducer, add the reducer to the `provideStore()` function under the name `router`, and add the `routerMiddleware` to provide them to Angular 2.
 
 ```typescript
 
