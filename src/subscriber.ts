@@ -30,7 +30,11 @@ export default provide(RouterSubscriber, {
 
         return init;
       })
-      .filter(url => url !== getStore().getState().router.url)
+      .filter(url => {
+        let router = getStore().getState().router;
+
+        return router.navigating || url !== router.url;
+      })
       .map((url) => {
         return {
           type: RouterActions.navigated,

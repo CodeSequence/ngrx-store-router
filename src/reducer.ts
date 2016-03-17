@@ -18,7 +18,7 @@ export const RouterActions = {
   navigating: '[ROUTER] NAVIGATING'
 }
 
-export const routerReducer:Reducer<Object> = (state: RouterState = initialState, action: Action) => {
+export const routerReducer:Reducer<RouterState> = (state: RouterState = initialState, action: Action) => {
   switch(action.type) {
     case RouterActions.init:
       return Object.assign({}, state, { url: action.payload.url, init: true });

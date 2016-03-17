@@ -6,7 +6,7 @@ import {Router, Location} from 'angular2/router';
 
 export default createMiddleware((router: Router, location: Location, rs: any) => {
   return state$ => state$.do(s => {
-      if (s.router.init && s.router.url !== location.path()) {
+      if (s.router.init && (s.router.navigating || s.router.url !== location.path())) {
         router.navigateByUrl(s.router.url);
       }
     });
