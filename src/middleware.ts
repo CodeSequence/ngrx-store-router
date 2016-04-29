@@ -1,8 +1,9 @@
 import 'rxjs/add/operator/do';
-import {provide, Provider, Injector} from 'angular2/core';
+import {provide, Provider} from 'angular2/core';
 import {createMiddleware} from '@ngrx/store';
 import {RouterSubscriber} from './subscriber';
-import {Router, Location} from 'angular2/router';
+import {Router} from 'angular2/router';
+import {Location} from 'angular2/platform/common';
 
 export default createMiddleware((router: Router, location: Location, rs: any) => {
   return state$ => state$.do(s => {
