@@ -1,6 +1,6 @@
 {
   "name": "ngrx-store-router",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Sync between the current router URL and @ngrx/store",
   "main": "index.js",
   "scripts": {
@@ -25,11 +25,18 @@
   },
   "homepage": "https://github.com/CodeSequence/ngrx-store-router#readme",
   "peerDependencies": {
-    "@ngrx/store": "^1.3.2",
-    "angular2": "^2.0.0-beta.17",
+    "@ngrx/store": "^1.4.0",
+    "@angular/core": "^2.0.0-rc.0",
+    "@angular/common": "^2.0.0-rc.0",
+    "@angular/router-deprecated": "^2.0.0-rc.0",
+    "rxjs": "^5.0.0-beta.6"
+  },
+  "devDependencies": {
+    "@angular/common": "^2.0.0-rc.0",
+    "@angular/core": "^2.0.0-rc.0",
+    "@angular/router-deprecated": "^2.0.0-rc.0",
+    "@ngrx/store": "^1.4.0",
     "es6-shim": "^0.35.0",
-    "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-beta.6",
-    "zone.js": "^0.6.12"
+    "rxjs": "^5.0.0-beta.6"
   }
 }

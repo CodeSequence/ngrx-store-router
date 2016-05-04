@@ -1,14 +1,14 @@
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
-import {provide, Provider, Injector, OpaqueToken} from 'angular2/core';
-import {Router} from 'angular2/router';
-import {Location} from 'angular2/platform/common';
+import {provide, Provider, Injector, OpaqueToken} from '@angular/core';
+import {Router} from '@angular/router-deprecated';
+import {Location} from '@angular/common';
 import {Store, createMiddleware, Dispatcher} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {RouterActions} from './reducer';
 
-export const RouterSubscriber = new OpaqueToken('RouterSubscribe');
+export const RouterSubscriber = new OpaqueToken('RouterSubscriber');
 
 export default provide(RouterSubscriber, {
   deps: [Injector, Router, Location],

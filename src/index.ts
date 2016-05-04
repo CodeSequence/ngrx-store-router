@@ -1,4 +1,4 @@
-import {Provider} from 'angular2/core';
+import {Provider} from '@angular/core';
 import {usePostMiddleware} from '@ngrx/store';
 import routerSubscriber from './subscriber';
 import routerPostMiddleware from './middleware';
