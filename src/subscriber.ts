@@ -2,7 +2,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 import {provide, Provider, Injector, OpaqueToken} from '@angular/core';
-import {Router} from '@angular/router-deprecated';
+import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {Store, createMiddleware, Dispatcher} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
@@ -15,8 +15,8 @@ export default provide(RouterSubscriber, {
   useFactory(injector: Injector, router: Router, location: Location) {
     const getStore = () => injector.get(Store);
 
-    (<Observable<string>>router['_subject'])
-      .distinctUntilChanged()
+    (<Observable<string>>router['_changes'])
+      //.distinctUntilChanged()
       .map(() => location.path())
       .filter((url) => {
         let store = getStore();

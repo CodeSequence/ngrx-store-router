@@ -2,7 +2,7 @@ import 'rxjs/add/operator/do';
 import {provide, Provider} from '@angular/core';
 import {createMiddleware} from '@ngrx/store';
 import {RouterSubscriber} from './subscriber';
-import {Router} from '@angular/router-deprecated';
+import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 
 export default createMiddleware((router: Router, location: Location, rs: any) => {
