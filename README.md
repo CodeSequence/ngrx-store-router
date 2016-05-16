@@ -10,7 +10,8 @@ http://plnkr.co/edit/Gvg9fW?p=preview
 
 ### Installation
 
-- Install from npm : `npm install ngrx-store-router`
+- Install from npm : **DEPRECATED Router** `npm install ngrx-store-router@0.2.0 --save`
+- Install from npm : `npm install ngrx-store-router --save`
 
 ### Usage
 
@@ -18,7 +19,7 @@ http://plnkr.co/edit/Gvg9fW?p=preview
 
 ```typescript
 
-import {bootstrap} from 'angular2/platform/bootstrap';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {provideStore} from '@ngrx/store';
 import {App} from './app';
 
