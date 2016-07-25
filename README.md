@@ -2,7 +2,7 @@
 
 Sync between the current Angular 2 Router URL and @ngrx/store
 
-This middleware is to be used along with `@ngrx/store` and `@ngrx/devtools` to navigate between routes while changing state
+This service is to be used along with `@ngrx/store` and `@ngrx/store-devtools` to navigate between routes while changing state
 
 ### Demo
 
@@ -15,20 +15,39 @@ http://plnkr.co/edit/Gvg9fW?p=preview
 
 ### Usage
 
-- In your app's main module, import the router reducer, add the reducer to the `provideStore()` function under the name `router`, and add the `routerMiddleware` to provide them to Angular 2.
+- In your app's main module, import the router reducer, add the reducer to the `provideStore()` function under the name `router`, and add the `provideRouterConnector()` to provide them to Angular 2.
 
 ```typescript
-
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {provideStore} from '@ngrx/store';
 import {App} from './app';
 
-import {routerReducer, routerMiddleware} from 'ngrx-store-router';
+import {routerReducer, provideRouterConnector} from 'ngrx-store-router';
 
 bootstrap(App, [
   provideStore({router: routerReducer}),
-  routerMiddleware
+  provideRouterConnector()
 ]);
+```
+
+- In your app's main component, import the `RouterConnector` service and call the `connect` function to initialize the router sync to the store. To stop the router from syncing with the store, use the `disconnect` function.
+
+```typescript
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {RouterConnector} from 'ngrx-store-router';
+
+@Component({ ... })
+export class App implements OnInit, OnDestroy {
+  constructor(private rc: RouterConnector) {}
+
+  ngOnInit() {
+    this.rc.connect();
+  }
+
+  ngOnDestroy() {
+    this.rc.disconnect();
+  }
+}
 
 ```
 

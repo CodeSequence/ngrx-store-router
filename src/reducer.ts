@@ -1,8 +1,8 @@
-import {Reducer, Action, Store} from '@ngrx/store';
+import { Action } from '@ngrx/store';
 
 const initialState = {
   init: false,
-  url: "",
+  url: '',
   navigating: false
 };
 
@@ -16,10 +16,10 @@ export const RouterActions = {
   init: '[ROUTER] INITIALIZED',
   navigated: '[ROUTER] NAVIGATED',
   navigating: '[ROUTER] NAVIGATING'
-}
+};
 
-export const routerReducer:Reducer<RouterState> = (state: RouterState = initialState, action: Action) => {
-  switch(action.type) {
+export const routerReducer = (state: RouterState = initialState, action: Action): RouterState => {
+  switch (action.type) {
     case RouterActions.init:
       return Object.assign({}, state, { url: action.payload.url, init: true });
     case RouterActions.navigating:

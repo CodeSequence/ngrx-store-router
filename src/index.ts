@@ -1,13 +1,10 @@
-import {Provider} from '@angular/core';
-import {usePostMiddleware} from '@ngrx/store';
-import routerSubscriber from './subscriber';
-import routerPostMiddleware from './middleware';
+import {RouterConnector} from './router-connector';
 
-const routerMiddleware = [
-  usePostMiddleware(routerPostMiddleware),
-  routerSubscriber
-];
+export const provideRouterConnector = () => {
+  return [
+    RouterConnector
+  ];
+};
 
-export {RouterSubscriber} from './subscriber';
+export {RouterConnector};
 export {routerReducer, RouterState, RouterActions} from './reducer';
-export {routerMiddleware};
