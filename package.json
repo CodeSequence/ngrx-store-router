@@ -1,12 +1,14 @@
 {
   "name": "ngrx-store-router",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Sync between the current router URL and @ngrx/store",
   "main": "index.js",
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "tsc",
-    "postbuild": "cp ./{readme.md,package.json} ./dist"
+    "postbuild": "cp ./{readme.md,package.json} ./dist",
+    "typings": "typings",
+    "typings:install": "npm run typings -- install"
   },
   "repository": {
     "type": "git",
@@ -25,21 +27,25 @@
   },
   "homepage": "https://github.com/CodeSequence/ngrx-store-router#readme",
   "peerDependencies": {
-    "@ngrx/store": "^1.5.0",
-    "@angular/core": "^2.0.0-rc.1",
-    "@angular/common": "^2.0.0-rc.1",
-    "@angular/router": "^2.0.0-rc.1",
+    "@angular/core": "^2.0.0-rc",
+    "@angular/common": "^2.0.0-rc",
+    "@angular/router": "^3.0.0-beta",
+    "@ngrx/core": "^1.0.1",
+    "@ngrx/store": "^2.0.0",
     "rxjs": "5.0.0-beta.6"
   },
   "devDependencies": {
-    "@ngrx/store": "^1.5.0",
-    "@angular/core": "^2.0.0-rc.1",
-    "@angular/common": "^2.0.0-rc.1",
-    "@angular/compiler": "2.0.0-rc.1",
-    "@angular/router": "^2.0.0-rc.1",
-    "@angular/platform-browser": "^2.0.0-rc.1",
+    "@angular/common": "^2.0.0-rc",
+    "@angular/compiler": "^2.0.0-rc",
+    "@angular/core": "^2.0.0-rc",
+    "@angular/platform-browser": "^2.0.0-rc",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc",
+    "@angular/router": "^3.0.0-beta",
+    "@ngrx/core": "^1.0.1",
+    "@ngrx/store": "^2.0.0",
     "es6-shim": "^0.35.0",
     "rxjs": "5.0.0-beta.6",
+    "typings": "^0.8.1",
     "zone.js": "^0.6.12"
   }
 }
